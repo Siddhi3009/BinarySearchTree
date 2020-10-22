@@ -58,5 +58,33 @@ namespace BinarySearchTree
         {
             return (Size(root));
         }
+        public void BinarySearch(T value)
+        {
+            Node<T> current = root;
+            bool elementFound = false;
+            while (current!= null)
+            {
+                if (current.data.Equals(value))
+                {
+                    elementFound = true;
+                    break;
+                }
+                else 
+                {
+                    if (value.CompareTo(current.data) < 0)
+                    {
+                        current = current.Left;
+                    }
+                    else
+                    {
+                        current = current.Right;
+                    }
+                }
+            }
+            if (elementFound)
+                Console.WriteLine("Element Found");
+            else
+                Console.WriteLine("Element doesn't exist in the tree");
+        }
     }
 }

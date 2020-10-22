@@ -22,6 +22,7 @@ namespace BinarySearchTree
             bst.Insert(63);
             bst.Insert(67);
             Console.WriteLine("Size of Tree: " + bst.SizeOfTree());
+            bst.BinarySearch(63);
         }
     }
 }

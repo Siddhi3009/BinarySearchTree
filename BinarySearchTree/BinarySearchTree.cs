@@ -1,16 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace BinarySearchTree
 {
+    /// <summary>
+    /// Binary search tree operations
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     class BinarySearchTree<T> where T : IComparable
     {
         public Node<T> root;
+        /// <summary>
+        /// Root node initialisation of binary tree
+        /// </summary>
         public BinarySearchTree()
         {
             this.root = null;
         }
+        /// <summary>
+        /// Inserts new element in binary tree
+        /// </summary>
+        /// <param name="element"></param>
         public void Insert(T element)
         {
             Node<T> newNode = new Node<T>(element);
@@ -32,7 +42,6 @@ namespace BinarySearchTree
                             break;
                         }
                     }
-
                     else
                     {
                         current = current.Right;
@@ -45,6 +54,11 @@ namespace BinarySearchTree
                 }
             }
         }
+        /// <summary>
+        /// Calculates size of tree
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns> returns size of tree</returns>
         public int Size(Node<T> node)
         {
             if (node == null) 
@@ -54,10 +68,18 @@ namespace BinarySearchTree
                 return (Size(node.Left) + 1 + Size(node.Right));
             }
         }
+        /// <summary>
+        /// Calculates size of tree using root node
+        /// </summary>
+        /// <returns>Size of tree is returned</returns>
         public int SizeOfTree()
         {
             return (Size(root));
         }
+        /// <summary>
+        /// Searches for an element in binary tree
+        /// </summary>
+        /// <param name="value"></param>
         public void BinarySearch(T value)
         {
             Node<T> current = root;
